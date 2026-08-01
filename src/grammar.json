@@ -589,6 +589,18 @@
             },
             {
               "type": "SYMBOL",
+              "name": "alter_organization_set_options_statement"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "alter_project_set_options_statement"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "alter_bi_capacity_set_options_statement"
+            },
+            {
+              "type": "SYMBOL",
               "name": "drop_table_statement"
             },
             {
@@ -3438,6 +3450,123 @@
             "type": "SYMBOL",
             "name": "alter_column_actions_list"
           }
+        }
+      ]
+    },
+    "alter_organization_set_options_statement": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_keyword_alter"
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "PATTERN",
+            "value": "[oO][rR][gG][aA][nN][iI][zZ][aA][tT][iI][oO][nN]"
+          },
+          "named": false,
+          "value": "ORGANIZATION"
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "PATTERN",
+            "value": "[sS][eE][tT]"
+          },
+          "named": false,
+          "value": "SET"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "option_clause"
+        }
+      ]
+    },
+    "alter_project_set_options_statement": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_keyword_alter"
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "PATTERN",
+            "value": "[pP][rR][oO][jJ][eE][cC][tT]"
+          },
+          "named": false,
+          "value": "PROJECT"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "FIELD",
+              "name": "project_id",
+              "content": {
+                "type": "SYMBOL",
+                "name": "identifier"
+              }
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "PATTERN",
+            "value": "[sS][eE][tT]"
+          },
+          "named": false,
+          "value": "SET"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "option_clause"
+        }
+      ]
+    },
+    "alter_bi_capacity_set_options_statement": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_keyword_alter"
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "PATTERN",
+            "value": "[bB][iI][__][cC][aA][pP][aA][cC][iI][tT][yY]"
+          },
+          "named": false,
+          "value": "BI_CAPACITY"
+        },
+        {
+          "type": "FIELD",
+          "name": "bi_capacity_name",
+          "content": {
+            "type": "SYMBOL",
+            "name": "identifier"
+          }
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "PATTERN",
+            "value": "[sS][eE][tT]"
+          },
+          "named": false,
+          "value": "SET"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "option_clause"
         }
       ]
     },
