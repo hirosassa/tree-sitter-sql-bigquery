@@ -1,0 +1,17 @@
+{
+  "$schema": "https://tree-sitter.github.io/tree-sitter/assets/schemas/config.schema.json",
+  "grammars": [
+    {
+      "name": "sql_bigquery",
+      "scope": "source.sql",
+      "file-types": ["sql", "bqsql"],
+      "highlights": ["queries/highlights.scm"]
+    }
+  ],
+  "metadata": {
+    "version": "0.8.0",
+    "license": "MIT",
+    "description": "SQL grammar for tree-sitter (BigQuery)",
+    "authors": [{ "name": "takegue" }]
+  }
+}
