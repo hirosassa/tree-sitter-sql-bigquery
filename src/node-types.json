@@ -94,6 +94,32 @@
     }
   },
   {
+    "type": "alter_bi_capacity_set_options_statement",
+    "named": true,
+    "fields": {
+      "bi_capacity_name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "option_clause",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "alter_column_action",
     "named": true,
     "fields": {
@@ -205,6 +231,47 @@
           "type": "keyword_if_exists",
           "named": true
         },
+        {
+          "type": "option_clause",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "alter_organization_set_options_statement",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "option_clause",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "alter_project_set_options_statement",
+    "named": true,
+    "fields": {
+      "project_id": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
         {
           "type": "option_clause",
           "named": true
@@ -808,7 +875,19 @@
       "required": false,
       "types": [
         {
+          "type": "alter_bi_capacity_set_options_statement",
+          "named": true
+        },
+        {
           "type": "alter_external_schema_statement",
+          "named": true
+        },
+        {
+          "type": "alter_organization_set_options_statement",
+          "named": true
+        },
+        {
+          "type": "alter_project_set_options_statement",
           "named": true
         },
         {
@@ -1087,7 +1166,19 @@
       "required": true,
       "types": [
         {
+          "type": "alter_bi_capacity_set_options_statement",
+          "named": true
+        },
+        {
           "type": "alter_external_schema_statement",
+          "named": true
+        },
+        {
+          "type": "alter_organization_set_options_statement",
+          "named": true
+        },
+        {
+          "type": "alter_project_set_options_statement",
           "named": true
         },
         {
@@ -4751,7 +4842,19 @@
       "required": true,
       "types": [
         {
+          "type": "alter_bi_capacity_set_options_statement",
+          "named": true
+        },
+        {
           "type": "alter_external_schema_statement",
+          "named": true
+        },
+        {
+          "type": "alter_organization_set_options_statement",
+          "named": true
+        },
+        {
+          "type": "alter_project_set_options_statement",
           "named": true
         },
         {
@@ -5042,7 +5145,19 @@
           "named": true
         },
         {
+          "type": "alter_bi_capacity_set_options_statement",
+          "named": true
+        },
+        {
           "type": "alter_external_schema_statement",
+          "named": true
+        },
+        {
+          "type": "alter_organization_set_options_statement",
+          "named": true
+        },
+        {
+          "type": "alter_project_set_options_statement",
           "named": true
         },
         {
@@ -5812,7 +5927,19 @@
       "required": true,
       "types": [
         {
+          "type": "alter_bi_capacity_set_options_statement",
+          "named": true
+        },
+        {
           "type": "alter_external_schema_statement",
+          "named": true
+        },
+        {
+          "type": "alter_organization_set_options_statement",
+          "named": true
+        },
+        {
+          "type": "alter_project_set_options_statement",
           "named": true
         },
         {
@@ -7060,7 +7187,19 @@
           "named": true
         },
         {
+          "type": "alter_bi_capacity_set_options_statement",
+          "named": true
+        },
+        {
           "type": "alter_external_schema_statement",
+          "named": true
+        },
+        {
+          "type": "alter_organization_set_options_statement",
+          "named": true
+        },
+        {
+          "type": "alter_project_set_options_statement",
           "named": true
         },
         {
@@ -7945,7 +8084,19 @@
       "required": true,
       "types": [
         {
+          "type": "alter_bi_capacity_set_options_statement",
+          "named": true
+        },
+        {
           "type": "alter_external_schema_statement",
+          "named": true
+        },
+        {
+          "type": "alter_organization_set_options_statement",
+          "named": true
+        },
+        {
+          "type": "alter_project_set_options_statement",
           "named": true
         },
         {
@@ -9275,7 +9426,19 @@
       "required": false,
       "types": [
         {
+          "type": "alter_bi_capacity_set_options_statement",
+          "named": true
+        },
+        {
           "type": "alter_external_schema_statement",
+          "named": true
+        },
+        {
+          "type": "alter_organization_set_options_statement",
+          "named": true
+        },
+        {
+          "type": "alter_project_set_options_statement",
           "named": true
         },
         {
@@ -9979,7 +10142,19 @@
       "required": true,
       "types": [
         {
+          "type": "alter_bi_capacity_set_options_statement",
+          "named": true
+        },
+        {
           "type": "alter_external_schema_statement",
+          "named": true
+        },
+        {
+          "type": "alter_organization_set_options_statement",
+          "named": true
+        },
+        {
+          "type": "alter_project_set_options_statement",
           "named": true
         },
         {
@@ -11150,7 +11325,19 @@
       "required": false,
       "types": [
         {
+          "type": "alter_bi_capacity_set_options_statement",
+          "named": true
+        },
+        {
           "type": "alter_external_schema_statement",
+          "named": true
+        },
+        {
+          "type": "alter_organization_set_options_statement",
+          "named": true
+        },
+        {
+          "type": "alter_project_set_options_statement",
           "named": true
         },
         {
@@ -13041,7 +13228,19 @@
           "named": true
         },
         {
+          "type": "alter_bi_capacity_set_options_statement",
+          "named": true
+        },
+        {
           "type": "alter_external_schema_statement",
+          "named": true
+        },
+        {
+          "type": "alter_organization_set_options_statement",
+          "named": true
+        },
+        {
+          "type": "alter_project_set_options_statement",
           "named": true
         },
         {
@@ -13740,6 +13939,10 @@
     "named": false
   },
   {
+    "type": "BI_CAPACITY",
+    "named": false
+  },
+  {
     "type": "BREAK",
     "named": false
   },
@@ -14204,6 +14407,10 @@
     "named": false
   },
   {
+    "type": "ORGANIZATION",
+    "named": false
+  },
+  {
     "type": "OR_REPLACE",
     "named": false
   },
@@ -14249,6 +14456,10 @@
   },
   {
     "type": "PROCEDURE",
+    "named": false
+  },
+  {
+    "type": "PROJECT",
     "named": false
   },
   {

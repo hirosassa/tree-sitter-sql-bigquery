@@ -127,6 +127,9 @@ module.exports = grammar({
           $.alter_table_statement,
           $.alter_table_rename_statement,
           $.alter_table_column_statement,
+          $.alter_organization_set_options_statement,
+          $.alter_project_set_options_statement,
+          $.alter_bi_capacity_set_options_statement,
           $.drop_table_statement,
           $.create_function_statement,
           $.create_remote_function_statement,
@@ -556,6 +559,32 @@ module.exports = grammar({
         kw('TABLE'),
         field('table_name', $.identifier),
         field('actions', $.alter_column_actions_list),
+      ),
+
+    alter_organization_set_options_statement: ($) =>
+      seq(
+        $._keyword_alter,
+        kw('ORGANIZATION'),
+        kw('SET'),
+        $.option_clause,
+      ),
+
+    alter_project_set_options_statement: ($) =>
+      seq(
+        $._keyword_alter,
+        kw('PROJECT'),
+        optional(field('project_id', $.identifier)),
+        kw('SET'),
+        $.option_clause,
+      ),
+
+    alter_bi_capacity_set_options_statement: ($) =>
+      seq(
+        $._keyword_alter,
+        kw('BI_CAPACITY'),
+        field('bi_capacity_name', $.identifier),
+        kw('SET'),
+        $.option_clause,
       ),
     alter_column_actions_list: ($) =>
       seq(

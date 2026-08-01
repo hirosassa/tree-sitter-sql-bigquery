@@ -1,0 +1,61 @@
+==========================================
+DDL: ALTER ORGANIZATION SET OPTIONS
+==========================================
+
+ALTER ORGANIZATION SET OPTIONS(default_time_zone='UTC');
+
+---
+
+(source_file
+  (alter_organization_set_options_statement
+    (option_clause
+      (option_item
+        key: (identifier)
+        value: (string)))))
+
+==========================================
+DDL: ALTER PROJECT SET OPTIONS with project id
+==========================================
+
+ALTER PROJECT myproject SET OPTIONS(default_kms_key_name='k');
+
+---
+
+(source_file
+  (alter_project_set_options_statement
+    project_id: (identifier)
+    (option_clause
+      (option_item
+        key: (identifier)
+        value: (string)))))
+
+==========================================
+DDL: ALTER PROJECT SET OPTIONS without project id
+==========================================
+
+ALTER PROJECT SET OPTIONS(x='y');
+
+---
+
+(source_file
+  (alter_project_set_options_statement
+    (option_clause
+      (option_item
+        key: (identifier)
+        value: (string)))))
+
+==========================================
+DDL: ALTER BI_CAPACITY SET OPTIONS
+==========================================
+
+ALTER BI_CAPACITY bicap SET OPTIONS(size_gb=100);
+
+---
+
+(source_file
+  (alter_bi_capacity_set_options_statement
+    bi_capacity_name: (identifier)
+    (option_clause
+      (option_item
+        key: (identifier)
+        value: (number)))))
