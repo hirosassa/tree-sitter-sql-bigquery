@@ -115,6 +115,9 @@ module.exports = grammar({
           $.alter_schema_drop_replica_statement,
           $.drop_schema_statement,
           $.undrop_schema_statement,
+          $.create_external_schema_statement,
+          $.alter_external_schema_statement,
+          $.drop_external_schema_statement,
           $.create_table_statement,
           $.create_table_like_statement,
           $.create_table_clone_statement,
@@ -347,6 +350,37 @@ module.exports = grammar({
         field('schema_name', $.identifier),
         optional($.default_collate_clause),
         optional($.option_clause),
+      ),
+
+    create_external_schema_statement: ($) =>
+      prec.right(seq(
+        $._keyword_create,
+        kw('EXTERNAL'),
+        $._keyword_schema,
+        optional($.keyword_if_not_exists),
+        field('schema_name', $.identifier),
+        optional($.with_connection_clause),
+        optional($.option_clause),
+      )),
+
+    alter_external_schema_statement: ($) =>
+      seq(
+        $._keyword_alter,
+        kw('EXTERNAL'),
+        $._keyword_schema,
+        optional($.keyword_if_exists),
+        field('schema_name', $.identifier),
+        kw('SET'),
+        optional($.option_clause),
+      ),
+
+    drop_external_schema_statement: ($) =>
+      seq(
+        $._keyword_drop,
+        kw('EXTERNAL'),
+        $._keyword_schema,
+        optional($.keyword_if_exists),
+        field('schema_name', $.identifier),
       ),
 
     _alter_schema_clause: ($) =>

@@ -183,6 +183,36 @@
     }
   },
   {
+    "type": "alter_external_schema_statement",
+    "named": true,
+    "fields": {
+      "schema_name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "keyword_if_exists",
+          "named": true
+        },
+        {
+          "type": "option_clause",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "alter_schema_add_replica_statement",
     "named": true,
     "fields": {
@@ -778,6 +808,10 @@
       "required": false,
       "types": [
         {
+          "type": "alter_external_schema_statement",
+          "named": true
+        },
+        {
           "type": "alter_schema_add_replica_statement",
           "named": true
         },
@@ -831,6 +865,10 @@
         },
         {
           "type": "continue_statement",
+          "named": true
+        },
+        {
+          "type": "create_external_schema_statement",
           "named": true
         },
         {
@@ -903,6 +941,10 @@
         },
         {
           "type": "drop_all_row_access_policies_statement",
+          "named": true
+        },
+        {
+          "type": "drop_external_schema_statement",
           "named": true
         },
         {
@@ -1045,6 +1087,10 @@
       "required": true,
       "types": [
         {
+          "type": "alter_external_schema_statement",
+          "named": true
+        },
+        {
           "type": "alter_schema_add_replica_statement",
           "named": true
         },
@@ -1098,6 +1144,10 @@
         },
         {
           "type": "continue_statement",
+          "named": true
+        },
+        {
+          "type": "create_external_schema_statement",
           "named": true
         },
         {
@@ -1170,6 +1220,10 @@
         },
         {
           "type": "drop_all_row_access_policies_statement",
+          "named": true
+        },
+        {
+          "type": "drop_external_schema_statement",
           "named": true
         },
         {
@@ -2936,6 +2990,40 @@
     }
   },
   {
+    "type": "create_external_schema_statement",
+    "named": true,
+    "fields": {
+      "schema_name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "keyword_if_not_exists",
+          "named": true
+        },
+        {
+          "type": "option_clause",
+          "named": true
+        },
+        {
+          "type": "with_connection_clause",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "create_external_table_statement",
     "named": true,
     "fields": {
@@ -4225,6 +4313,32 @@
     "fields": {}
   },
   {
+    "type": "drop_external_schema_statement",
+    "named": true,
+    "fields": {
+      "schema_name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "keyword_if_exists",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "drop_function_statement",
     "named": true,
     "fields": {
@@ -4637,6 +4751,10 @@
       "required": true,
       "types": [
         {
+          "type": "alter_external_schema_statement",
+          "named": true
+        },
+        {
           "type": "alter_schema_add_replica_statement",
           "named": true
         },
@@ -4690,6 +4808,10 @@
         },
         {
           "type": "continue_statement",
+          "named": true
+        },
+        {
+          "type": "create_external_schema_statement",
           "named": true
         },
         {
@@ -4762,6 +4884,10 @@
         },
         {
           "type": "drop_all_row_access_policies_statement",
+          "named": true
+        },
+        {
+          "type": "drop_external_schema_statement",
           "named": true
         },
         {
@@ -4916,6 +5042,10 @@
           "named": true
         },
         {
+          "type": "alter_external_schema_statement",
+          "named": true
+        },
+        {
           "type": "alter_schema_add_replica_statement",
           "named": true
         },
@@ -4996,6 +5126,10 @@
           "named": true
         },
         {
+          "type": "create_external_schema_statement",
+          "named": true
+        },
+        {
           "type": "create_external_table_statement",
           "named": true
         },
@@ -5065,6 +5199,10 @@
         },
         {
           "type": "drop_all_row_access_policies_statement",
+          "named": true
+        },
+        {
+          "type": "drop_external_schema_statement",
           "named": true
         },
         {
@@ -5674,6 +5812,10 @@
       "required": true,
       "types": [
         {
+          "type": "alter_external_schema_statement",
+          "named": true
+        },
+        {
           "type": "alter_schema_add_replica_statement",
           "named": true
         },
@@ -5727,6 +5869,10 @@
         },
         {
           "type": "continue_statement",
+          "named": true
+        },
+        {
+          "type": "create_external_schema_statement",
           "named": true
         },
         {
@@ -5799,6 +5945,10 @@
         },
         {
           "type": "drop_all_row_access_policies_statement",
+          "named": true
+        },
+        {
+          "type": "drop_external_schema_statement",
           "named": true
         },
         {
@@ -6910,6 +7060,10 @@
           "named": true
         },
         {
+          "type": "alter_external_schema_statement",
+          "named": true
+        },
+        {
           "type": "alter_schema_add_replica_statement",
           "named": true
         },
@@ -6990,6 +7144,10 @@
           "named": true
         },
         {
+          "type": "create_external_schema_statement",
+          "named": true
+        },
+        {
           "type": "create_external_table_statement",
           "named": true
         },
@@ -7059,6 +7217,10 @@
         },
         {
           "type": "drop_all_row_access_policies_statement",
+          "named": true
+        },
+        {
+          "type": "drop_external_schema_statement",
           "named": true
         },
         {
@@ -7783,6 +7945,10 @@
       "required": true,
       "types": [
         {
+          "type": "alter_external_schema_statement",
+          "named": true
+        },
+        {
           "type": "alter_schema_add_replica_statement",
           "named": true
         },
@@ -7836,6 +8002,10 @@
         },
         {
           "type": "continue_statement",
+          "named": true
+        },
+        {
+          "type": "create_external_schema_statement",
           "named": true
         },
         {
@@ -7908,6 +8078,10 @@
         },
         {
           "type": "drop_all_row_access_policies_statement",
+          "named": true
+        },
+        {
+          "type": "drop_external_schema_statement",
           "named": true
         },
         {
@@ -9101,6 +9275,10 @@
       "required": false,
       "types": [
         {
+          "type": "alter_external_schema_statement",
+          "named": true
+        },
+        {
           "type": "alter_schema_add_replica_statement",
           "named": true
         },
@@ -9154,6 +9332,10 @@
         },
         {
           "type": "continue_statement",
+          "named": true
+        },
+        {
+          "type": "create_external_schema_statement",
           "named": true
         },
         {
@@ -9226,6 +9408,10 @@
         },
         {
           "type": "drop_all_row_access_policies_statement",
+          "named": true
+        },
+        {
+          "type": "drop_external_schema_statement",
           "named": true
         },
         {
@@ -9793,6 +9979,10 @@
       "required": true,
       "types": [
         {
+          "type": "alter_external_schema_statement",
+          "named": true
+        },
+        {
           "type": "alter_schema_add_replica_statement",
           "named": true
         },
@@ -9846,6 +10036,10 @@
         },
         {
           "type": "continue_statement",
+          "named": true
+        },
+        {
+          "type": "create_external_schema_statement",
           "named": true
         },
         {
@@ -9918,6 +10112,10 @@
         },
         {
           "type": "drop_all_row_access_policies_statement",
+          "named": true
+        },
+        {
+          "type": "drop_external_schema_statement",
           "named": true
         },
         {
@@ -10952,6 +11150,10 @@
       "required": false,
       "types": [
         {
+          "type": "alter_external_schema_statement",
+          "named": true
+        },
+        {
           "type": "alter_schema_add_replica_statement",
           "named": true
         },
@@ -11005,6 +11207,10 @@
         },
         {
           "type": "continue_statement",
+          "named": true
+        },
+        {
+          "type": "create_external_schema_statement",
           "named": true
         },
         {
@@ -11077,6 +11283,10 @@
         },
         {
           "type": "drop_all_row_access_policies_statement",
+          "named": true
+        },
+        {
+          "type": "drop_external_schema_statement",
           "named": true
         },
         {
@@ -12831,6 +13041,10 @@
           "named": true
         },
         {
+          "type": "alter_external_schema_statement",
+          "named": true
+        },
+        {
           "type": "alter_schema_add_replica_statement",
           "named": true
         },
@@ -12911,6 +13125,10 @@
           "named": true
         },
         {
+          "type": "create_external_schema_statement",
+          "named": true
+        },
+        {
           "type": "create_external_table_statement",
           "named": true
         },
@@ -12980,6 +13198,10 @@
         },
         {
           "type": "drop_all_row_access_policies_statement",
+          "named": true
+        },
+        {
+          "type": "drop_external_schema_statement",
           "named": true
         },
         {
@@ -13731,6 +13953,10 @@
   },
   {
     "type": "EXPORT_MODEL",
+    "named": false
+  },
+  {
+    "type": "EXTERNAL",
     "named": false
   },
   {
