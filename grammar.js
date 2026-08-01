@@ -175,6 +175,7 @@ module.exports = grammar({
           $.rollback_transaction_statement,
           // Other
           $.export_data_statement,
+          $.export_model_statement,
           $.load_data_statement,
         ),
         optional(';'),
@@ -1628,6 +1629,14 @@ module.exports = grammar({
         'AS',
         $.query_statement,
       ),
+
+    export_model_statement: ($) =>
+      prec.right(seq(
+        kw('EXPORT MODEL'),
+        field('model_name', $.identifier),
+        optional($.with_connection_clause),
+        optional($.option_clause),
+      )),
 
     load_data_statement: ($) =>
       prec.right(seq(

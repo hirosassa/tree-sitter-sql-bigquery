@@ -950,6 +950,10 @@
           "named": true
         },
         {
+          "type": "export_model_statement",
+          "named": true
+        },
+        {
           "type": "for_in_statement",
           "named": true
         },
@@ -1210,6 +1214,10 @@
         },
         {
           "type": "export_data_statement",
+          "named": true
+        },
+        {
+          "type": "export_model_statement",
           "named": true
         },
         {
@@ -4801,6 +4809,10 @@
           "named": true
         },
         {
+          "type": "export_model_statement",
+          "named": true
+        },
+        {
           "type": "for_in_statement",
           "named": true
         },
@@ -5104,6 +5116,10 @@
           "named": true
         },
         {
+          "type": "export_model_statement",
+          "named": true
+        },
+        {
           "type": "field_access",
           "named": true
         },
@@ -5379,6 +5395,36 @@
         },
         {
           "type": "query_statement",
+          "named": true
+        },
+        {
+          "type": "with_connection_clause",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "export_model_statement",
+    "named": true,
+    "fields": {
+      "model_name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "option_clause",
           "named": true
         },
         {
@@ -5797,6 +5843,10 @@
         },
         {
           "type": "export_data_statement",
+          "named": true
+        },
+        {
+          "type": "export_model_statement",
           "named": true
         },
         {
@@ -7068,6 +7118,10 @@
           "named": true
         },
         {
+          "type": "export_model_statement",
+          "named": true
+        },
+        {
           "type": "field_access",
           "named": true
         },
@@ -7898,6 +7952,10 @@
         },
         {
           "type": "export_data_statement",
+          "named": true
+        },
+        {
+          "type": "export_model_statement",
           "named": true
         },
         {
@@ -9215,6 +9273,10 @@
           "named": true
         },
         {
+          "type": "export_model_statement",
+          "named": true
+        },
+        {
           "type": "for_in_statement",
           "named": true
         },
@@ -9900,6 +9962,10 @@
         },
         {
           "type": "export_data_statement",
+          "named": true
+        },
+        {
+          "type": "export_model_statement",
           "named": true
         },
         {
@@ -11055,6 +11121,10 @@
         },
         {
           "type": "export_data_statement",
+          "named": true
+        },
+        {
+          "type": "export_model_statement",
           "named": true
         },
         {
@@ -12961,6 +13031,10 @@
           "named": true
         },
         {
+          "type": "export_model_statement",
+          "named": true
+        },
+        {
           "type": "field_access",
           "named": true
         },
@@ -13653,6 +13727,10 @@
   },
   {
     "type": "EXPORT_DATA",
+    "named": false
+  },
+  {
+    "type": "EXPORT_MODEL",
     "named": false
   },
   {

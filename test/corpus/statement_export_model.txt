@@ -1,0 +1,45 @@
+==========================================
+OTHER: EXPORT MODEL
+==========================================
+
+EXPORT MODEL my_dataset.my_model OPTIONS(uri='gs://bucket/path');
+
+---
+
+(source_file
+  (export_model_statement
+    model_name: (identifier)
+    (option_clause
+      (option_item
+        key: (identifier)
+        value: (string)))))
+
+==========================================
+OTHER: EXPORT MODEL with connection
+==========================================
+
+EXPORT MODEL m WITH CONNECTION conn OPTIONS(uri='gs://b');
+
+---
+
+(source_file
+  (export_model_statement
+    model_name: (identifier)
+    (with_connection_clause
+      connection_name: (connection_path))
+    (option_clause
+      (option_item
+        key: (identifier)
+        value: (string)))))
+
+==========================================
+OTHER: EXPORT MODEL without options
+==========================================
+
+EXPORT MODEL m;
+
+---
+
+(source_file
+  (export_model_statement
+    model_name: (identifier)))

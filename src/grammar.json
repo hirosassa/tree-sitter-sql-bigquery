@@ -765,6 +765,10 @@
             },
             {
               "type": "SYMBOL",
+              "name": "export_model_statement"
+            },
+            {
+              "type": "SYMBOL",
               "name": "load_data_statement"
             }
           ]
@@ -11578,6 +11582,65 @@
           "name": "query_statement"
         }
       ]
+    },
+    "export_model_statement": {
+      "type": "PREC_RIGHT",
+      "value": 0,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "ALIAS",
+            "content": {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "PATTERN",
+                  "value": "[eE][xX][pP][oO][rR][tT]"
+                },
+                {
+                  "type": "PATTERN",
+                  "value": "[mM][oO][dD][eE][lL]"
+                }
+              ]
+            },
+            "named": false,
+            "value": "EXPORT_MODEL"
+          },
+          {
+            "type": "FIELD",
+            "name": "model_name",
+            "content": {
+              "type": "SYMBOL",
+              "name": "identifier"
+            }
+          },
+          {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "with_connection_clause"
+              },
+              {
+                "type": "BLANK"
+              }
+            ]
+          },
+          {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "option_clause"
+              },
+              {
+                "type": "BLANK"
+              }
+            ]
+          }
+        ]
+      }
     },
     "load_data_statement": {
       "type": "PREC_RIGHT",
