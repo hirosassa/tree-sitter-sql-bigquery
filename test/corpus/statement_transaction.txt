@@ -1,0 +1,54 @@
+==========================================
+TRANSACTION: BEGIN TRANSACTION
+==========================================
+
+BEGIN TRANSACTION;
+
+---
+
+(source_file
+  (begin_transaction_statement))
+
+==========================================
+TRANSACTION: COMMIT TRANSACTION
+==========================================
+
+COMMIT TRANSACTION;
+
+---
+
+(source_file
+  (commit_transaction_statement))
+
+==========================================
+TRANSACTION: COMMIT
+==========================================
+
+COMMIT;
+
+---
+
+(source_file
+  (commit_transaction_statement))
+
+==========================================
+TRANSACTION: ROLLBACK TRANSACTION
+==========================================
+
+ROLLBACK TRANSACTION;
+
+---
+
+(source_file
+  (rollback_transaction_statement))
+
+==========================================
+TRANSACTION: ROLLBACK
+==========================================
+
+ROLLBACK;
+
+---
+
+(source_file
+  (rollback_transaction_statement))
