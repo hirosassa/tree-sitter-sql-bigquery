@@ -537,6 +537,10 @@
             },
             {
               "type": "SYMBOL",
+              "name": "undrop_schema_statement"
+            },
+            {
+              "type": "SYMBOL",
               "name": "create_table_statement"
             },
             {
@@ -2058,6 +2062,44 @@
           },
           "named": false,
           "value": "RESTRICT"
+        }
+      ]
+    },
+    "undrop_schema_statement": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "PATTERN",
+            "value": "[uU][nN][dD][rR][oO][pP]"
+          },
+          "named": false,
+          "value": "UNDROP"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_keyword_schema"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "keyword_if_not_exists"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "FIELD",
+          "name": "schema_name",
+          "content": {
+            "type": "SYMBOL",
+            "name": "identifier"
+          }
         }
       ]
     },
