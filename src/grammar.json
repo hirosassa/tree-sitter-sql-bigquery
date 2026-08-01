@@ -621,6 +621,14 @@
             },
             {
               "type": "SYMBOL",
+              "name": "create_vector_index_statement"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "drop_vector_index_statement"
+            },
+            {
+              "type": "SYMBOL",
               "name": "query_statement"
             },
             {
@@ -4126,6 +4134,241 @@
           },
           "named": false,
           "value": "SEARCH_INDEX"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "keyword_if_exists"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "FIELD",
+          "name": "index_name",
+          "content": {
+            "type": "SYMBOL",
+            "name": "identifier"
+          }
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "PATTERN",
+            "value": "[oO][nN]"
+          },
+          "named": false,
+          "value": "ON"
+        },
+        {
+          "type": "FIELD",
+          "name": "table_name",
+          "content": {
+            "type": "SYMBOL",
+            "name": "identifier"
+          }
+        }
+      ]
+    },
+    "create_vector_index_statement": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_keyword_create"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "keyword_replace"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "PATTERN",
+                "value": "[vV][eE][cC][tT][oO][rR]"
+              },
+              {
+                "type": "PATTERN",
+                "value": "[iI][nN][dD][eE][xX]"
+              }
+            ]
+          },
+          "named": false,
+          "value": "VECTOR_INDEX"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "keyword_if_not_exists"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "FIELD",
+          "name": "index_name",
+          "content": {
+            "type": "SYMBOL",
+            "name": "identifier"
+          }
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "PATTERN",
+            "value": "[oO][nN]"
+          },
+          "named": false,
+          "value": "ON"
+        },
+        {
+          "type": "FIELD",
+          "name": "table_name",
+          "content": {
+            "type": "SYMBOL",
+            "name": "identifier"
+          }
+        },
+        {
+          "type": "STRING",
+          "value": "("
+        },
+        {
+          "type": "FIELD",
+          "name": "column_name",
+          "content": {
+            "type": "SYMBOL",
+            "name": "identifier"
+          }
+        },
+        {
+          "type": "STRING",
+          "value": ")"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "vector_index_storing_clause"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "option_clause"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
+    "vector_index_storing_clause": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "PATTERN",
+            "value": "[sS][tT][oO][rR][iI][nN][gG]"
+          },
+          "named": false,
+          "value": "STORING"
+        },
+        {
+          "type": "STRING",
+          "value": "("
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "FIELD",
+              "name": "column_name",
+              "content": {
+                "type": "SYMBOL",
+                "name": "identifier"
+              }
+            },
+            {
+              "type": "REPEAT",
+              "content": {
+                "type": "SEQ",
+                "members": [
+                  {
+                    "type": "STRING",
+                    "value": ","
+                  },
+                  {
+                    "type": "FIELD",
+                    "name": "column_name",
+                    "content": {
+                      "type": "SYMBOL",
+                      "name": "identifier"
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "type": "STRING",
+          "value": ")"
+        }
+      ]
+    },
+    "drop_vector_index_statement": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_keyword_drop"
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "PATTERN",
+                "value": "[vV][eE][cC][tT][oO][rR]"
+              },
+              {
+                "type": "PATTERN",
+                "value": "[iI][nN][dD][eE][xX]"
+              }
+            ]
+          },
+          "named": false,
+          "value": "VECTOR_INDEX"
         },
         {
           "type": "CHOICE",

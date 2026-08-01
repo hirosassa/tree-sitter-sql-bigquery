@@ -52,3 +52,69 @@ DROP SEARCH INDEX IF EXISTS my_index ON dataset.my_table;
     (keyword_if_exists)
     (identifier)
     (identifier)))
+
+================================================================================
+DDL: CREATE VECTOR INDEX
+================================================================================
+
+CREATE VECTOR INDEX my_index ON dataset.my_table(embedding)
+OPTIONS(index_type = 'IVF', distance_type = 'COSINE');
+CREATE OR REPLACE VECTOR INDEX my_index ON dataset.my_table(embedding)
+OPTIONS(index_type = 'IVF');
+CREATE VECTOR INDEX IF NOT EXISTS my_index ON dataset.my_table(embedding)
+STORING(id, title)
+OPTIONS(index_type = 'IVF');
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (create_vector_index_statement
+    (identifier)
+    (identifier)
+    (identifier)
+    (option_clause
+      (option_item
+        (identifier)
+        (string))
+      (option_item
+        (identifier)
+        (string))))
+  (create_vector_index_statement
+    (keyword_replace)
+    (identifier)
+    (identifier)
+    (identifier)
+    (option_clause
+      (option_item
+        (identifier)
+        (string))))
+  (create_vector_index_statement
+    (keyword_if_not_exists)
+    (identifier)
+    (identifier)
+    (identifier)
+    (vector_index_storing_clause
+      (identifier)
+      (identifier))
+    (option_clause
+      (option_item
+        (identifier)
+        (string)))))
+
+================================================================================
+DDL: DROP VECTOR INDEX
+================================================================================
+
+DROP VECTOR INDEX my_index ON dataset.my_table;
+DROP VECTOR INDEX IF EXISTS my_index ON dataset.my_table;
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (drop_vector_index_statement
+    (identifier)
+    (identifier))
+  (drop_vector_index_statement
+    (keyword_if_exists)
+    (identifier)
+    (identifier)))
