@@ -1,0 +1,24 @@
+==========================================
+DDL: DROP SNAPSHOT TABLE
+==========================================
+
+DROP SNAPSHOT TABLE mydataset.mysnapshot;
+
+---
+
+(source_file
+  (drop_snapshot_table_statement
+    table_name: (identifier)))
+
+==========================================
+DDL: DROP SNAPSHOT TABLE IF EXISTS
+==========================================
+
+DROP SNAPSHOT TABLE IF EXISTS mydataset.mysnapshot;
+
+---
+
+(source_file
+  (drop_snapshot_table_statement
+    (keyword_if_exists)
+    table_name: (identifier)))

@@ -123,6 +123,7 @@ module.exports = grammar({
           $.create_table_clone_statement,
           $.create_table_copy_statement,
           $.create_snapshot_table_statement,
+          $.drop_snapshot_table_statement,
           $.create_external_table_statement,
           $.alter_table_statement,
           $.alter_table_rename_statement,
@@ -777,12 +778,18 @@ module.exports = grammar({
         $._keyword_drop,
         choice(
           kw('TABLE'),
-          kw('SNAPSHOT TABLE'),
           kw('VIEW'),
           kw('MATERIALIZED VIEW'),
-          kw('SNAPSHOST TABLE'),
           kw('EXTERNAL TABLE'),
         ),
+        optional($.keyword_if_exists),
+        field('table_name', $.identifier),
+      ),
+
+    drop_snapshot_table_statement: ($) =>
+      seq(
+        $._keyword_drop,
+        kw('SNAPSHOT TABLE'),
         optional($.keyword_if_exists),
         field('table_name', $.identifier),
       ),
