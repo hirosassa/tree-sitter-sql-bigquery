@@ -737,6 +737,18 @@
             },
             {
               "type": "SYMBOL",
+              "name": "begin_transaction_statement"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "commit_transaction_statement"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "rollback_transaction_statement"
+            },
+            {
+              "type": "SYMBOL",
               "name": "export_data_statement"
             },
             {
@@ -1326,6 +1338,91 @@
           },
           "named": false,
           "value": "END"
+        }
+      ]
+    },
+    "begin_transaction_statement": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "PATTERN",
+            "value": "[bB][eE][gG][iI][nN]"
+          },
+          "named": false,
+          "value": "BEGIN"
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "PATTERN",
+            "value": "[tT][rR][aA][nN][sS][aA][cC][tT][iI][oO][nN]"
+          },
+          "named": false,
+          "value": "TRANSACTION"
+        }
+      ]
+    },
+    "commit_transaction_statement": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "PATTERN",
+            "value": "[cC][oO][mM][mM][iI][tT]"
+          },
+          "named": false,
+          "value": "COMMIT"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "ALIAS",
+              "content": {
+                "type": "PATTERN",
+                "value": "[tT][rR][aA][nN][sS][aA][cC][tT][iI][oO][nN]"
+              },
+              "named": false,
+              "value": "TRANSACTION"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
+    "rollback_transaction_statement": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "PATTERN",
+            "value": "[rR][oO][lL][lL][bB][aA][cC][kK]"
+          },
+          "named": false,
+          "value": "ROLLBACK"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "ALIAS",
+              "content": {
+                "type": "PATTERN",
+                "value": "[tT][rR][aA][nN][sS][aA][cC][tT][iI][oO][nN]"
+              },
+              "named": false,
+              "value": "TRANSACTION"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
         }
       ]
     },

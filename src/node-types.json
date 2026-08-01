@@ -814,11 +814,19 @@
           "named": true
         },
         {
+          "type": "begin_transaction_statement",
+          "named": true
+        },
+        {
           "type": "break_statement",
           "named": true
         },
         {
           "type": "call_statement",
+          "named": true
+        },
+        {
+          "type": "commit_transaction_statement",
           "named": true
         },
         {
@@ -983,6 +991,10 @@
         },
         {
           "type": "revoke_statement",
+          "named": true
+        },
+        {
+          "type": "rollback_transaction_statement",
           "named": true
         },
         {
@@ -1053,11 +1065,19 @@
           "named": true
         },
         {
+          "type": "begin_transaction_statement",
+          "named": true
+        },
+        {
           "type": "break_statement",
           "named": true
         },
         {
           "type": "call_statement",
+          "named": true
+        },
+        {
+          "type": "commit_transaction_statement",
           "named": true
         },
         {
@@ -1225,6 +1245,10 @@
           "named": true
         },
         {
+          "type": "rollback_transaction_statement",
+          "named": true
+        },
+        {
           "type": "set_statement",
           "named": true
         },
@@ -1246,6 +1270,11 @@
         }
       ]
     }
+  },
+  {
+    "type": "begin_transaction_statement",
+    "named": true,
+    "fields": {}
   },
   {
     "type": "between_from",
@@ -2807,6 +2836,11 @@
         }
       ]
     }
+  },
+  {
+    "type": "commit_transaction_statement",
+    "named": true,
+    "fields": {}
   },
   {
     "type": "connection_path",
@@ -4507,11 +4541,19 @@
           "named": true
         },
         {
+          "type": "begin_transaction_statement",
+          "named": true
+        },
+        {
           "type": "break_statement",
           "named": true
         },
         {
           "type": "call_statement",
+          "named": true
+        },
+        {
+          "type": "commit_transaction_statement",
           "named": true
         },
         {
@@ -4679,6 +4721,10 @@
           "named": true
         },
         {
+          "type": "rollback_transaction_statement",
+          "named": true
+        },
+        {
           "type": "set_statement",
           "named": true
         },
@@ -4766,6 +4812,10 @@
           "named": true
         },
         {
+          "type": "begin_transaction_statement",
+          "named": true
+        },
+        {
           "type": "between_operator",
           "named": true
         },
@@ -4787,6 +4837,10 @@
         },
         {
           "type": "cast_expression",
+          "named": true
+        },
+        {
+          "type": "commit_transaction_statement",
           "named": true
         },
         {
@@ -4987,6 +5041,10 @@
         },
         {
           "type": "revoke_statement",
+          "named": true
+        },
+        {
+          "type": "rollback_transaction_statement",
           "named": true
         },
         {
@@ -5338,11 +5396,19 @@
           "named": true
         },
         {
+          "type": "begin_transaction_statement",
+          "named": true
+        },
+        {
           "type": "break_statement",
           "named": true
         },
         {
           "type": "call_statement",
+          "named": true
+        },
+        {
+          "type": "commit_transaction_statement",
           "named": true
         },
         {
@@ -5511,6 +5577,10 @@
         },
         {
           "type": "revoke_statement",
+          "named": true
+        },
+        {
+          "type": "rollback_transaction_statement",
           "named": true
         },
         {
@@ -6538,6 +6608,10 @@
           "named": true
         },
         {
+          "type": "begin_transaction_statement",
+          "named": true
+        },
+        {
           "type": "between_operator",
           "named": true
         },
@@ -6559,6 +6633,10 @@
         },
         {
           "type": "cast_expression",
+          "named": true
+        },
+        {
+          "type": "commit_transaction_statement",
           "named": true
         },
         {
@@ -6767,6 +6845,10 @@
         },
         {
           "type": "revoke_statement",
+          "named": true
+        },
+        {
+          "type": "rollback_transaction_statement",
           "named": true
         },
         {
@@ -7375,11 +7457,19 @@
           "named": true
         },
         {
+          "type": "begin_transaction_statement",
+          "named": true
+        },
+        {
           "type": "break_statement",
           "named": true
         },
         {
           "type": "call_statement",
+          "named": true
+        },
+        {
+          "type": "commit_transaction_statement",
           "named": true
         },
         {
@@ -7544,6 +7634,10 @@
         },
         {
           "type": "revoke_statement",
+          "named": true
+        },
+        {
+          "type": "rollback_transaction_statement",
           "named": true
         },
         {
@@ -8665,11 +8759,19 @@
           "named": true
         },
         {
+          "type": "begin_transaction_statement",
+          "named": true
+        },
+        {
           "type": "break_statement",
           "named": true
         },
         {
           "type": "call_statement",
+          "named": true
+        },
+        {
+          "type": "commit_transaction_statement",
           "named": true
         },
         {
@@ -8834,6 +8936,10 @@
         },
         {
           "type": "revoke_statement",
+          "named": true
+        },
+        {
+          "type": "rollback_transaction_statement",
           "named": true
         },
         {
@@ -9329,11 +9435,19 @@
           "named": true
         },
         {
+          "type": "begin_transaction_statement",
+          "named": true
+        },
+        {
           "type": "break_statement",
           "named": true
         },
         {
           "type": "call_statement",
+          "named": true
+        },
+        {
+          "type": "commit_transaction_statement",
           "named": true
         },
         {
@@ -9501,6 +9615,10 @@
           "named": true
         },
         {
+          "type": "rollback_transaction_statement",
+          "named": true
+        },
+        {
           "type": "set_statement",
           "named": true
         },
@@ -9558,6 +9676,11 @@
         }
       ]
     }
+  },
+  {
+    "type": "rollback_transaction_statement",
+    "named": true,
+    "fields": {}
   },
   {
     "type": "rollup",
@@ -10455,11 +10578,19 @@
           "named": true
         },
         {
+          "type": "begin_transaction_statement",
+          "named": true
+        },
+        {
           "type": "break_statement",
           "named": true
         },
         {
           "type": "call_statement",
+          "named": true
+        },
+        {
+          "type": "commit_transaction_statement",
           "named": true
         },
         {
@@ -10624,6 +10755,10 @@
         },
         {
           "type": "revoke_statement",
+          "named": true
+        },
+        {
+          "type": "rollback_transaction_statement",
           "named": true
         },
         {
@@ -12314,6 +12449,10 @@
           "named": true
         },
         {
+          "type": "begin_transaction_statement",
+          "named": true
+        },
+        {
           "type": "between_operator",
           "named": true
         },
@@ -12335,6 +12474,10 @@
         },
         {
           "type": "cast_expression",
+          "named": true
+        },
+        {
+          "type": "commit_transaction_statement",
           "named": true
         },
         {
@@ -12535,6 +12678,10 @@
         },
         {
           "type": "revoke_statement",
+          "named": true
+        },
+        {
+          "type": "rollback_transaction_statement",
           "named": true
         },
         {
@@ -12962,6 +13109,10 @@
   },
   {
     "type": "COLUMN",
+    "named": false
+  },
+  {
+    "type": "COMMIT",
     "named": false
   },
   {
@@ -13481,6 +13632,10 @@
     "named": false
   },
   {
+    "type": "ROLLBACK",
+    "named": false
+  },
+  {
     "type": "ROLLUP",
     "named": false
   },
@@ -13578,6 +13733,10 @@
   },
   {
     "type": "TO",
+    "named": false
+  },
+  {
+    "type": "TRANSACTION",
     "named": false
   },
   {

@@ -166,6 +166,10 @@ module.exports = grammar({
           // DCL
           $.grant_statement,
           $.revoke_statement,
+          // Transaction control
+          $.begin_transaction_statement,
+          $.commit_transaction_statement,
+          $.rollback_transaction_statement,
           // Other
           $.export_data_statement,
           $.load_data_statement,
@@ -245,6 +249,10 @@ module.exports = grammar({
         optional($._statement_list),
         kw('END'),
       ),
+
+    begin_transaction_statement: (_) => seq(kw('BEGIN'), kw('TRANSACTION')),
+    commit_transaction_statement: (_) => seq(kw('COMMIT'), optional(kw('TRANSACTION'))),
+    rollback_transaction_statement: (_) => seq(kw('ROLLBACK'), optional(kw('TRANSACTION'))),
 
     if_statement: ($) =>
       seq(
