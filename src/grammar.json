@@ -573,6 +573,10 @@
             },
             {
               "type": "SYMBOL",
+              "name": "drop_snapshot_table_statement"
+            },
+            {
+              "type": "SYMBOL",
               "name": "create_external_table_statement"
             },
             {
@@ -4614,24 +4618,6 @@
             {
               "type": "ALIAS",
               "content": {
-                "type": "SEQ",
-                "members": [
-                  {
-                    "type": "PATTERN",
-                    "value": "[sS][nN][aA][pP][sS][hH][oO][tT]"
-                  },
-                  {
-                    "type": "PATTERN",
-                    "value": "[tT][aA][bB][lL][eE]"
-                  }
-                ]
-              },
-              "named": false,
-              "value": "SNAPSHOT_TABLE"
-            },
-            {
-              "type": "ALIAS",
-              "content": {
                 "type": "PATTERN",
                 "value": "[vV][iI][eE][wW]"
               },
@@ -4663,24 +4649,6 @@
                 "members": [
                   {
                     "type": "PATTERN",
-                    "value": "[sS][nN][aA][pP][sS][hH][oO][sS][tT]"
-                  },
-                  {
-                    "type": "PATTERN",
-                    "value": "[tT][aA][bB][lL][eE]"
-                  }
-                ]
-              },
-              "named": false,
-              "value": "SNAPSHOST_TABLE"
-            },
-            {
-              "type": "ALIAS",
-              "content": {
-                "type": "SEQ",
-                "members": [
-                  {
-                    "type": "PATTERN",
                     "value": "[eE][xX][tT][eE][rR][nN][aA][lL]"
                   },
                   {
@@ -4693,6 +4661,53 @@
               "value": "EXTERNAL_TABLE"
             }
           ]
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "keyword_if_exists"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "FIELD",
+          "name": "table_name",
+          "content": {
+            "type": "SYMBOL",
+            "name": "identifier"
+          }
+        }
+      ]
+    },
+    "drop_snapshot_table_statement": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_keyword_drop"
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "PATTERN",
+                "value": "[sS][nN][aA][pP][sS][hH][oO][tT]"
+              },
+              {
+                "type": "PATTERN",
+                "value": "[tT][aA][bB][lL][eE]"
+              }
+            ]
+          },
+          "named": false,
+          "value": "SNAPSHOT_TABLE"
         },
         {
           "type": "CHOICE",
