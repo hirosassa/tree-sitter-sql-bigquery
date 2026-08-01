@@ -135,6 +135,8 @@ module.exports = grammar({
           $.drop_model_statement,
           $.create_search_index_statement,
           $.drop_search_index_statement,
+          $.create_vector_index_statement,
+          $.drop_vector_index_statement,
           $.query_statement,
           $.insert_statement,
           $.delete_statement,
@@ -660,6 +662,37 @@ module.exports = grammar({
       seq(
         $._keyword_drop,
         kw('SEARCH INDEX'),
+        optional($.keyword_if_exists),
+        field('index_name', $.identifier),
+        kw('ON'),
+        field('table_name', $.identifier),
+      ),
+    create_vector_index_statement: ($) =>
+      seq(
+        $._keyword_create,
+        optional($.keyword_replace),
+        kw('VECTOR INDEX'),
+        optional($.keyword_if_not_exists),
+        field('index_name', $.identifier),
+        kw('ON'),
+        field('table_name', $.identifier),
+        '(',
+        field('column_name', $.identifier),
+        ')',
+        optional($.vector_index_storing_clause),
+        optional($.option_clause),
+      ),
+    vector_index_storing_clause: ($) =>
+      seq(
+        kw('STORING'),
+        '(',
+        commaSep1(field('column_name', $.identifier)),
+        ')',
+      ),
+    drop_vector_index_statement: ($) =>
+      seq(
+        $._keyword_drop,
+        kw('VECTOR INDEX'),
         optional($.keyword_if_exists),
         field('index_name', $.identifier),
         kw('ON'),
