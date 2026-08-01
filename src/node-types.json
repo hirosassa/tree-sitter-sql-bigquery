@@ -854,6 +854,10 @@
           "named": true
         },
         {
+          "type": "create_row_access_policy_statement",
+          "named": true
+        },
+        {
           "type": "create_schema_statement",
           "named": true
         },
@@ -898,6 +902,10 @@
           "named": true
         },
         {
+          "type": "drop_all_row_access_policies_statement",
+          "named": true
+        },
+        {
           "type": "drop_function_statement",
           "named": true
         },
@@ -907,6 +915,10 @@
         },
         {
           "type": "drop_procedure_statement",
+          "named": true
+        },
+        {
+          "type": "drop_row_access_policy_statement",
           "named": true
         },
         {
@@ -1105,6 +1117,10 @@
           "named": true
         },
         {
+          "type": "create_row_access_policy_statement",
+          "named": true
+        },
+        {
           "type": "create_schema_statement",
           "named": true
         },
@@ -1149,6 +1165,10 @@
           "named": true
         },
         {
+          "type": "drop_all_row_access_policies_statement",
+          "named": true
+        },
+        {
           "type": "drop_function_statement",
           "named": true
         },
@@ -1158,6 +1178,10 @@
         },
         {
           "type": "drop_procedure_statement",
+          "named": true
+        },
+        {
+          "type": "drop_row_access_policy_statement",
           "named": true
         },
         {
@@ -3300,6 +3324,54 @@
     }
   },
   {
+    "type": "create_row_access_policy_statement",
+    "named": true,
+    "fields": {
+      "policy_name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      },
+      "table_name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "filter_using_clause",
+          "named": true
+        },
+        {
+          "type": "grant_to_clause",
+          "named": true
+        },
+        {
+          "type": "keyword_if_not_exists",
+          "named": true
+        },
+        {
+          "type": "keyword_replace",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "create_schema_statement",
     "named": true,
     "fields": {
@@ -4072,6 +4144,22 @@
     "fields": {}
   },
   {
+    "type": "drop_all_row_access_policies_statement",
+    "named": true,
+    "fields": {
+      "table_name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
     "type": "drop_column_action",
     "named": true,
     "fields": {
@@ -4205,6 +4293,42 @@
     "named": true,
     "fields": {
       "routine_name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "keyword_if_exists",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "drop_row_access_policy_statement",
+    "named": true,
+    "fields": {
+      "policy_name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      },
+      "table_name": {
         "multiple": false,
         "required": true,
         "types": [
@@ -4581,6 +4705,10 @@
           "named": true
         },
         {
+          "type": "create_row_access_policy_statement",
+          "named": true
+        },
+        {
           "type": "create_schema_statement",
           "named": true
         },
@@ -4625,6 +4753,10 @@
           "named": true
         },
         {
+          "type": "drop_all_row_access_policies_statement",
+          "named": true
+        },
+        {
           "type": "drop_function_statement",
           "named": true
         },
@@ -4634,6 +4766,10 @@
         },
         {
           "type": "drop_procedure_statement",
+          "named": true
+        },
+        {
+          "type": "drop_row_access_policy_statement",
           "named": true
         },
         {
@@ -4868,6 +5004,10 @@
           "named": true
         },
         {
+          "type": "create_row_access_policy_statement",
+          "named": true
+        },
+        {
           "type": "create_schema_statement",
           "named": true
         },
@@ -4912,6 +5052,10 @@
           "named": true
         },
         {
+          "type": "drop_all_row_access_policies_statement",
+          "named": true
+        },
+        {
           "type": "drop_function_statement",
           "named": true
         },
@@ -4921,6 +5065,10 @@
         },
         {
           "type": "drop_procedure_statement",
+          "named": true
+        },
+        {
+          "type": "drop_row_access_policy_statement",
           "named": true
         },
         {
@@ -5352,6 +5500,126 @@
     }
   },
   {
+    "type": "filter_using_clause",
+    "named": true,
+    "fields": {
+      "filter": {
+        "multiple": true,
+        "required": true,
+        "types": [
+          {
+            "type": "(",
+            "named": false
+          },
+          {
+            "type": ")",
+            "named": false
+          },
+          {
+            "type": "FALSE",
+            "named": true
+          },
+          {
+            "type": "NULL",
+            "named": true
+          },
+          {
+            "type": "TRUE",
+            "named": true
+          },
+          {
+            "type": "argument_reference",
+            "named": true
+          },
+          {
+            "type": "array",
+            "named": true
+          },
+          {
+            "type": "between_operator",
+            "named": true
+          },
+          {
+            "type": "binary_expression",
+            "named": true
+          },
+          {
+            "type": "casewhen_expression",
+            "named": true
+          },
+          {
+            "type": "cast_expression",
+            "named": true
+          },
+          {
+            "type": "element_access",
+            "named": true
+          },
+          {
+            "type": "field_access",
+            "named": true
+          },
+          {
+            "type": "function_call",
+            "named": true
+          },
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "interval",
+            "named": true
+          },
+          {
+            "type": "json",
+            "named": true
+          },
+          {
+            "type": "number",
+            "named": true
+          },
+          {
+            "type": "query_parameter",
+            "named": true
+          },
+          {
+            "type": "range",
+            "named": true
+          },
+          {
+            "type": "select_subexpression",
+            "named": true
+          },
+          {
+            "type": "string",
+            "named": true
+          },
+          {
+            "type": "struct",
+            "named": true
+          },
+          {
+            "type": "system_variable",
+            "named": true
+          },
+          {
+            "type": "time",
+            "named": true
+          },
+          {
+            "type": "unary_expression",
+            "named": true
+          },
+          {
+            "type": "unnest_clause",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
     "type": "for_in_statement",
     "named": true,
     "fields": {},
@@ -5436,6 +5704,10 @@
           "named": true
         },
         {
+          "type": "create_row_access_policy_statement",
+          "named": true
+        },
+        {
           "type": "create_schema_statement",
           "named": true
         },
@@ -5480,6 +5752,10 @@
           "named": true
         },
         {
+          "type": "drop_all_row_access_policies_statement",
+          "named": true
+        },
+        {
           "type": "drop_function_statement",
           "named": true
         },
@@ -5489,6 +5765,10 @@
         },
         {
           "type": "drop_procedure_statement",
+          "named": true
+        },
+        {
+          "type": "drop_row_access_policy_statement",
           "named": true
         },
         {
@@ -6062,6 +6342,22 @@
           "named": true
         }
       ]
+    }
+  },
+  {
+    "type": "grant_to_clause",
+    "named": true,
+    "fields": {
+      "grantee": {
+        "multiple": true,
+        "required": true,
+        "types": [
+          {
+            "type": "string",
+            "named": true
+          }
+        ]
+      }
     }
   },
   {
@@ -6664,6 +6960,10 @@
           "named": true
         },
         {
+          "type": "create_row_access_policy_statement",
+          "named": true
+        },
+        {
           "type": "create_schema_statement",
           "named": true
         },
@@ -6708,6 +7008,10 @@
           "named": true
         },
         {
+          "type": "drop_all_row_access_policies_statement",
+          "named": true
+        },
+        {
           "type": "drop_function_statement",
           "named": true
         },
@@ -6717,6 +7021,10 @@
         },
         {
           "type": "drop_procedure_statement",
+          "named": true
+        },
+        {
+          "type": "drop_row_access_policy_statement",
           "named": true
         },
         {
@@ -7497,6 +7805,10 @@
           "named": true
         },
         {
+          "type": "create_row_access_policy_statement",
+          "named": true
+        },
+        {
           "type": "create_schema_statement",
           "named": true
         },
@@ -7541,6 +7853,10 @@
           "named": true
         },
         {
+          "type": "drop_all_row_access_policies_statement",
+          "named": true
+        },
+        {
           "type": "drop_function_statement",
           "named": true
         },
@@ -7550,6 +7866,10 @@
         },
         {
           "type": "drop_procedure_statement",
+          "named": true
+        },
+        {
+          "type": "drop_row_access_policy_statement",
           "named": true
         },
         {
@@ -8799,6 +9119,10 @@
           "named": true
         },
         {
+          "type": "create_row_access_policy_statement",
+          "named": true
+        },
+        {
           "type": "create_schema_statement",
           "named": true
         },
@@ -8843,6 +9167,10 @@
           "named": true
         },
         {
+          "type": "drop_all_row_access_policies_statement",
+          "named": true
+        },
+        {
           "type": "drop_function_statement",
           "named": true
         },
@@ -8852,6 +9180,10 @@
         },
         {
           "type": "drop_procedure_statement",
+          "named": true
+        },
+        {
+          "type": "drop_row_access_policy_statement",
           "named": true
         },
         {
@@ -9475,6 +9807,10 @@
           "named": true
         },
         {
+          "type": "create_row_access_policy_statement",
+          "named": true
+        },
+        {
           "type": "create_schema_statement",
           "named": true
         },
@@ -9519,6 +9855,10 @@
           "named": true
         },
         {
+          "type": "drop_all_row_access_policies_statement",
+          "named": true
+        },
+        {
           "type": "drop_function_statement",
           "named": true
         },
@@ -9528,6 +9868,10 @@
         },
         {
           "type": "drop_procedure_statement",
+          "named": true
+        },
+        {
+          "type": "drop_row_access_policy_statement",
           "named": true
         },
         {
@@ -10618,6 +10962,10 @@
           "named": true
         },
         {
+          "type": "create_row_access_policy_statement",
+          "named": true
+        },
+        {
           "type": "create_schema_statement",
           "named": true
         },
@@ -10662,6 +11010,10 @@
           "named": true
         },
         {
+          "type": "drop_all_row_access_policies_statement",
+          "named": true
+        },
+        {
           "type": "drop_function_statement",
           "named": true
         },
@@ -10671,6 +11023,10 @@
         },
         {
           "type": "drop_procedure_statement",
+          "named": true
+        },
+        {
+          "type": "drop_row_access_policy_statement",
           "named": true
         },
         {
@@ -12505,6 +12861,10 @@
           "named": true
         },
         {
+          "type": "create_row_access_policy_statement",
+          "named": true
+        },
+        {
           "type": "create_schema_statement",
           "named": true
         },
@@ -12549,6 +12909,10 @@
           "named": true
         },
         {
+          "type": "drop_all_row_access_policies_statement",
+          "named": true
+        },
+        {
           "type": "drop_function_statement",
           "named": true
         },
@@ -12558,6 +12922,10 @@
         },
         {
           "type": "drop_procedure_statement",
+          "named": true
+        },
+        {
+          "type": "drop_row_access_policy_statement",
           "named": true
         },
         {
@@ -13028,6 +13396,10 @@
     "named": false
   },
   {
+    "type": "ALL_ROW_ACCESS_POLICIES",
+    "named": false
+  },
+  {
     "type": "ALTER",
     "named": false
   },
@@ -13296,6 +13668,10 @@
     "named": false
   },
   {
+    "type": "FILTER_USING",
+    "named": false
+  },
+  {
     "type": "FOLLOWING",
     "named": false
   },
@@ -13333,6 +13709,10 @@
   },
   {
     "type": "GRANT",
+    "named": false
+  },
+  {
+    "type": "GRANT_TO",
     "named": false
   },
   {
@@ -13645,6 +14025,10 @@
   },
   {
     "type": "ROWS",
+    "named": false
+  },
+  {
+    "type": "ROW_ACCESS_POLICY",
     "named": false
   },
   {

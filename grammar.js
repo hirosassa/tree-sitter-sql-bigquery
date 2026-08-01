@@ -166,6 +166,9 @@ module.exports = grammar({
           // DCL
           $.grant_statement,
           $.revoke_statement,
+          $.create_row_access_policy_statement,
+          $.drop_row_access_policy_statement,
+          $.drop_all_row_access_policies_statement,
           // Transaction control
           $.begin_transaction_statement,
           $.commit_transaction_statement,
@@ -1576,6 +1579,41 @@ module.exports = grammar({
         kw('TABLE'),
         kw('VIEW'),
         kw('EXTERNAL TABLE'),
+      ),
+
+    create_row_access_policy_statement: ($) =>
+      seq(
+        $._keyword_create,
+        optional($.keyword_replace),
+        kw('ROW ACCESS POLICY'),
+        optional($.keyword_if_not_exists),
+        field('policy_name', $.identifier),
+        kw('ON'),
+        field('table_name', $.identifier),
+        optional($.grant_to_clause),
+        $.filter_using_clause,
+      ),
+
+    grant_to_clause: ($) => seq(kw('GRANT TO'), '(', commaSep1(field('grantee', $.string)), ')'),
+
+    filter_using_clause: ($) => seq(kw('FILTER USING'), '(', field('filter', $._expression), ')'),
+
+    drop_row_access_policy_statement: ($) =>
+      seq(
+        $._keyword_drop,
+        kw('ROW ACCESS POLICY'),
+        optional($.keyword_if_exists),
+        field('policy_name', $.identifier),
+        kw('ON'),
+        field('table_name', $.identifier),
+      ),
+
+    drop_all_row_access_policies_statement: ($) =>
+      seq(
+        $._keyword_drop,
+        kw('ALL ROW ACCESS POLICIES'),
+        kw('ON'),
+        field('table_name', $.identifier),
       ),
 
     /** *******************************************************************************
