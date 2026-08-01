@@ -1,0 +1,62 @@
+==========================================
+DDL: CREATE ROW ACCESS POLICY
+==========================================
+
+CREATE ROW ACCESS POLICY us_filter ON dataset.my_table FILTER USING (region = 'US');
+
+---
+
+(source_file
+  (create_row_access_policy_statement
+    policy_name: (identifier)
+    table_name: (identifier)
+    (filter_using_clause
+      filter: (binary_expression
+        left: (identifier)
+        right: (string)))))
+
+==========================================
+DDL: CREATE OR REPLACE ROW ACCESS POLICY with GRANT TO
+==========================================
+
+CREATE OR REPLACE ROW ACCESS POLICY IF NOT EXISTS p ON t GRANT TO ('user:a@b.com', 'group:x@b.com') FILTER USING (TRUE);
+
+---
+
+(source_file
+  (create_row_access_policy_statement
+    (keyword_replace)
+    (keyword_if_not_exists)
+    policy_name: (identifier)
+    table_name: (identifier)
+    (grant_to_clause
+      grantee: (string)
+      grantee: (string))
+    (filter_using_clause
+      filter: (TRUE))))
+
+==========================================
+DDL: DROP ROW ACCESS POLICY
+==========================================
+
+DROP ROW ACCESS POLICY IF EXISTS p ON t;
+
+---
+
+(source_file
+  (drop_row_access_policy_statement
+    (keyword_if_exists)
+    policy_name: (identifier)
+    table_name: (identifier)))
+
+==========================================
+DDL: DROP ALL ROW ACCESS POLICIES
+==========================================
+
+DROP ALL ROW ACCESS POLICIES ON t;
+
+---
+
+(source_file
+  (drop_all_row_access_policies_statement
+    table_name: (identifier)))

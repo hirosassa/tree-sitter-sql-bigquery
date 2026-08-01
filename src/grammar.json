@@ -737,6 +737,18 @@
             },
             {
               "type": "SYMBOL",
+              "name": "create_row_access_policy_statement"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "drop_row_access_policy_statement"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "drop_all_row_access_policies_statement"
+            },
+            {
+              "type": "SYMBOL",
               "name": "begin_transaction_statement"
             },
             {
@@ -11198,6 +11210,325 @@
           },
           "named": false,
           "value": "EXTERNAL_TABLE"
+        }
+      ]
+    },
+    "create_row_access_policy_statement": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_keyword_create"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "keyword_replace"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "PATTERN",
+                "value": "[rR][oO][wW]"
+              },
+              {
+                "type": "PATTERN",
+                "value": "[aA][cC][cC][eE][sS][sS]"
+              },
+              {
+                "type": "PATTERN",
+                "value": "[pP][oO][lL][iI][cC][yY]"
+              }
+            ]
+          },
+          "named": false,
+          "value": "ROW_ACCESS_POLICY"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "keyword_if_not_exists"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "FIELD",
+          "name": "policy_name",
+          "content": {
+            "type": "SYMBOL",
+            "name": "identifier"
+          }
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "PATTERN",
+            "value": "[oO][nN]"
+          },
+          "named": false,
+          "value": "ON"
+        },
+        {
+          "type": "FIELD",
+          "name": "table_name",
+          "content": {
+            "type": "SYMBOL",
+            "name": "identifier"
+          }
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "grant_to_clause"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "SYMBOL",
+          "name": "filter_using_clause"
+        }
+      ]
+    },
+    "grant_to_clause": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "PATTERN",
+                "value": "[gG][rR][aA][nN][tT]"
+              },
+              {
+                "type": "PATTERN",
+                "value": "[tT][oO]"
+              }
+            ]
+          },
+          "named": false,
+          "value": "GRANT_TO"
+        },
+        {
+          "type": "STRING",
+          "value": "("
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "FIELD",
+              "name": "grantee",
+              "content": {
+                "type": "SYMBOL",
+                "name": "string"
+              }
+            },
+            {
+              "type": "REPEAT",
+              "content": {
+                "type": "SEQ",
+                "members": [
+                  {
+                    "type": "STRING",
+                    "value": ","
+                  },
+                  {
+                    "type": "FIELD",
+                    "name": "grantee",
+                    "content": {
+                      "type": "SYMBOL",
+                      "name": "string"
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "type": "STRING",
+          "value": ")"
+        }
+      ]
+    },
+    "filter_using_clause": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "PATTERN",
+                "value": "[fF][iI][lL][tT][eE][rR]"
+              },
+              {
+                "type": "PATTERN",
+                "value": "[uU][sS][iI][nN][gG]"
+              }
+            ]
+          },
+          "named": false,
+          "value": "FILTER_USING"
+        },
+        {
+          "type": "STRING",
+          "value": "("
+        },
+        {
+          "type": "FIELD",
+          "name": "filter",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_expression"
+          }
+        },
+        {
+          "type": "STRING",
+          "value": ")"
+        }
+      ]
+    },
+    "drop_row_access_policy_statement": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_keyword_drop"
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "PATTERN",
+                "value": "[rR][oO][wW]"
+              },
+              {
+                "type": "PATTERN",
+                "value": "[aA][cC][cC][eE][sS][sS]"
+              },
+              {
+                "type": "PATTERN",
+                "value": "[pP][oO][lL][iI][cC][yY]"
+              }
+            ]
+          },
+          "named": false,
+          "value": "ROW_ACCESS_POLICY"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "keyword_if_exists"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "FIELD",
+          "name": "policy_name",
+          "content": {
+            "type": "SYMBOL",
+            "name": "identifier"
+          }
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "PATTERN",
+            "value": "[oO][nN]"
+          },
+          "named": false,
+          "value": "ON"
+        },
+        {
+          "type": "FIELD",
+          "name": "table_name",
+          "content": {
+            "type": "SYMBOL",
+            "name": "identifier"
+          }
+        }
+      ]
+    },
+    "drop_all_row_access_policies_statement": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_keyword_drop"
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "PATTERN",
+                "value": "[aA][lL][lL]"
+              },
+              {
+                "type": "PATTERN",
+                "value": "[rR][oO][wW]"
+              },
+              {
+                "type": "PATTERN",
+                "value": "[aA][cC][cC][eE][sS][sS]"
+              },
+              {
+                "type": "PATTERN",
+                "value": "[pP][oO][lL][iI][cC][iI][eE][sS]"
+              }
+            ]
+          },
+          "named": false,
+          "value": "ALL_ROW_ACCESS_POLICIES"
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "PATTERN",
+            "value": "[oO][nN]"
+          },
+          "named": false,
+          "value": "ON"
+        },
+        {
+          "type": "FIELD",
+          "name": "table_name",
+          "content": {
+            "type": "SYMBOL",
+            "name": "identifier"
+          }
         }
       ]
     },
