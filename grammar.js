@@ -133,6 +133,8 @@ module.exports = grammar({
           $.drop_procedure_statement,
           $.create_model_statement,
           $.drop_model_statement,
+          $.create_search_index_statement,
+          $.drop_search_index_statement,
           $.query_statement,
           $.insert_statement,
           $.delete_statement,
@@ -436,7 +438,7 @@ module.exports = grammar({
     copy_clause: ($) => seq(kw('COPY'), field('source_table_name', $.identifier)),
     create_snapshot_table_statement: ($) =>
       prec.right(seq(
-          $._keyword_create,
+        $._keyword_create,
         kw('SNAPSHOT TABLE'),
         optional($.keyword_if_not_exists),
         field('table_name', $.identifier),
@@ -632,6 +634,35 @@ module.exports = grammar({
           kw('EXTERNAL TABLE'),
         ),
         optional($.keyword_if_exists),
+        field('table_name', $.identifier),
+      ),
+
+    create_search_index_statement: ($) =>
+      seq(
+        $._keyword_create,
+        kw('SEARCH INDEX'),
+        optional($.keyword_if_not_exists),
+        field('index_name', $.identifier),
+        kw('ON'),
+        field('table_name', $.identifier),
+        '(',
+        $._index_column_group,
+        ')',
+        optional($.option_clause),
+      ),
+    _index_column_group: ($) =>
+      choice(
+        $.index_all_columns,
+        commaSep1(field('column_name', $.identifier)),
+      ),
+    index_all_columns: (_) => kw('ALL COLUMNS'),
+    drop_search_index_statement: ($) =>
+      seq(
+        $._keyword_drop,
+        kw('SEARCH INDEX'),
+        optional($.keyword_if_exists),
+        field('index_name', $.identifier),
+        kw('ON'),
         field('table_name', $.identifier),
       ),
 
