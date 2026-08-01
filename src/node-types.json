@@ -994,6 +994,10 @@
           "named": true
         },
         {
+          "type": "undrop_schema_statement",
+          "named": true
+        },
+        {
           "type": "update_statement",
           "named": true
         },
@@ -1226,6 +1230,10 @@
         },
         {
           "type": "truncate_statement",
+          "named": true
+        },
+        {
+          "type": "undrop_schema_statement",
           "named": true
         },
         {
@@ -4679,6 +4687,10 @@
           "named": true
         },
         {
+          "type": "undrop_schema_statement",
+          "named": true
+        },
+        {
           "type": "update_statement",
           "named": true
         },
@@ -5007,6 +5019,10 @@
         },
         {
           "type": "unary_expression",
+          "named": true
+        },
+        {
+          "type": "undrop_schema_statement",
           "named": true
         },
         {
@@ -5503,6 +5519,10 @@
         },
         {
           "type": "truncate_statement",
+          "named": true
+        },
+        {
+          "type": "undrop_schema_statement",
           "named": true
         },
         {
@@ -6782,6 +6802,10 @@
           "named": true
         },
         {
+          "type": "undrop_schema_statement",
+          "named": true
+        },
+        {
           "type": "unnest_clause",
           "named": true
         },
@@ -7528,6 +7552,10 @@
         },
         {
           "type": "truncate_statement",
+          "named": true
+        },
+        {
+          "type": "undrop_schema_statement",
           "named": true
         },
         {
@@ -8817,6 +8845,10 @@
           "named": true
         },
         {
+          "type": "undrop_schema_statement",
+          "named": true
+        },
+        {
           "type": "update_statement",
           "named": true
         },
@@ -9474,6 +9506,10 @@
         },
         {
           "type": "truncate_statement",
+          "named": true
+        },
+        {
+          "type": "undrop_schema_statement",
           "named": true
         },
         {
@@ -10599,6 +10635,10 @@
           "named": true
         },
         {
+          "type": "undrop_schema_statement",
+          "named": true
+        },
+        {
           "type": "update_statement",
           "named": true
         },
@@ -11319,6 +11359,32 @@
         },
         {
           "type": "unnest_clause",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "undrop_schema_statement",
+    "named": true,
+    "fields": {
+      "schema_name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "keyword_if_not_exists",
           "named": true
         }
       ]
@@ -12504,6 +12570,10 @@
           "named": true
         },
         {
+          "type": "undrop_schema_statement",
+          "named": true
+        },
+        {
           "type": "unnest_clause",
           "named": true
         },
@@ -13532,6 +13602,10 @@
   },
   {
     "type": "UNBOUNDED_PRECEDING",
+    "named": false
+  },
+  {
+    "type": "UNDROP",
     "named": false
   },
   {
