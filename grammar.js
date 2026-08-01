@@ -114,6 +114,7 @@ module.exports = grammar({
           $.alter_schema_add_replica_statement,
           $.alter_schema_drop_replica_statement,
           $.drop_schema_statement,
+          $.undrop_schema_statement,
           $.create_table_statement,
           $.create_table_like_statement,
           $.create_table_clone_statement,
@@ -374,6 +375,13 @@ module.exports = grammar({
         optional($.drop_schema_option),
       ),
     drop_schema_option: () => choice(kw('CASCADE'), kw('RESTRICT')),
+    undrop_schema_statement: ($) =>
+      seq(
+        kw('UNDROP'),
+        $._keyword_schema,
+        optional($.keyword_if_not_exists),
+        field('schema_name', $.identifier),
+      ),
 
     create_table_statement: ($) =>
       prec.right(

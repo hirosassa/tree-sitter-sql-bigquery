@@ -1,0 +1,18 @@
+================================================================================
+DDL: UNDROP SCHEMA
+================================================================================
+
+UNDROP SCHEMA mydataset;
+UNDROP SCHEMA IF NOT EXISTS mydataset;
+UNDROP SCHEMA myproject.mydataset;
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (undrop_schema_statement
+    (identifier))
+  (undrop_schema_statement
+    (keyword_if_not_exists)
+    (identifier))
+  (undrop_schema_statement
+    (identifier)))
