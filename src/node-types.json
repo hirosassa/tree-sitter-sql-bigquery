@@ -878,6 +878,10 @@
           "named": true
         },
         {
+          "type": "create_vector_index_statement",
+          "named": true
+        },
+        {
           "type": "declare_statement",
           "named": true
         },
@@ -911,6 +915,10 @@
         },
         {
           "type": "drop_table_statement",
+          "named": true
+        },
+        {
+          "type": "drop_vector_index_statement",
           "named": true
         },
         {
@@ -1105,6 +1113,10 @@
           "named": true
         },
         {
+          "type": "create_vector_index_statement",
+          "named": true
+        },
+        {
           "type": "declare_statement",
           "named": true
         },
@@ -1138,6 +1150,10 @@
         },
         {
           "type": "drop_table_statement",
+          "named": true
+        },
+        {
+          "type": "drop_vector_index_statement",
           "named": true
         },
         {
@@ -3674,6 +3690,64 @@
     }
   },
   {
+    "type": "create_vector_index_statement",
+    "named": true,
+    "fields": {
+      "column_name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      },
+      "index_name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      },
+      "table_name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "keyword_if_not_exists",
+          "named": true
+        },
+        {
+          "type": "keyword_replace",
+          "named": true
+        },
+        {
+          "type": "option_clause",
+          "named": true
+        },
+        {
+          "type": "vector_index_storing_clause",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "cte",
     "named": true,
     "fields": {
@@ -4234,6 +4308,42 @@
     }
   },
   {
+    "type": "drop_vector_index_statement",
+    "named": true,
+    "fields": {
+      "index_name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      },
+      "table_name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "keyword_if_exists",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "element_access",
     "named": true,
     "fields": {},
@@ -4453,6 +4563,10 @@
           "named": true
         },
         {
+          "type": "create_vector_index_statement",
+          "named": true
+        },
+        {
           "type": "declare_statement",
           "named": true
         },
@@ -4486,6 +4600,10 @@
         },
         {
           "type": "drop_table_statement",
+          "named": true
+        },
+        {
+          "type": "drop_vector_index_statement",
           "named": true
         },
         {
@@ -4716,6 +4834,10 @@
           "named": true
         },
         {
+          "type": "create_vector_index_statement",
+          "named": true
+        },
+        {
           "type": "declare_statement",
           "named": true
         },
@@ -4749,6 +4871,10 @@
         },
         {
           "type": "drop_table_statement",
+          "named": true
+        },
+        {
+          "type": "drop_vector_index_statement",
           "named": true
         },
         {
@@ -5260,6 +5386,10 @@
           "named": true
         },
         {
+          "type": "create_vector_index_statement",
+          "named": true
+        },
+        {
           "type": "declare_statement",
           "named": true
         },
@@ -5293,6 +5423,10 @@
         },
         {
           "type": "drop_table_statement",
+          "named": true
+        },
+        {
+          "type": "drop_vector_index_statement",
           "named": true
         },
         {
@@ -6464,6 +6598,10 @@
           "named": true
         },
         {
+          "type": "create_vector_index_statement",
+          "named": true
+        },
+        {
           "type": "declare_statement",
           "named": true
         },
@@ -6497,6 +6635,10 @@
         },
         {
           "type": "drop_table_statement",
+          "named": true
+        },
+        {
+          "type": "drop_vector_index_statement",
           "named": true
         },
         {
@@ -7273,6 +7415,10 @@
           "named": true
         },
         {
+          "type": "create_vector_index_statement",
+          "named": true
+        },
+        {
           "type": "declare_statement",
           "named": true
         },
@@ -7306,6 +7452,10 @@
         },
         {
           "type": "drop_table_statement",
+          "named": true
+        },
+        {
+          "type": "drop_vector_index_statement",
           "named": true
         },
         {
@@ -8551,6 +8701,10 @@
           "named": true
         },
         {
+          "type": "create_vector_index_statement",
+          "named": true
+        },
+        {
           "type": "declare_statement",
           "named": true
         },
@@ -8584,6 +8738,10 @@
         },
         {
           "type": "drop_table_statement",
+          "named": true
+        },
+        {
+          "type": "drop_vector_index_statement",
           "named": true
         },
         {
@@ -9203,6 +9361,10 @@
           "named": true
         },
         {
+          "type": "create_vector_index_statement",
+          "named": true
+        },
+        {
           "type": "declare_statement",
           "named": true
         },
@@ -9236,6 +9398,10 @@
         },
         {
           "type": "drop_table_statement",
+          "named": true
+        },
+        {
+          "type": "drop_vector_index_statement",
           "named": true
         },
         {
@@ -10317,6 +10483,10 @@
           "named": true
         },
         {
+          "type": "create_vector_index_statement",
+          "named": true
+        },
+        {
           "type": "declare_statement",
           "named": true
         },
@@ -10350,6 +10520,10 @@
         },
         {
           "type": "drop_table_statement",
+          "named": true
+        },
+        {
+          "type": "drop_vector_index_statement",
           "named": true
         },
         {
@@ -11883,6 +12057,22 @@
     }
   },
   {
+    "type": "vector_index_storing_clause",
+    "named": true,
+    "fields": {
+      "column_name": {
+        "multiple": true,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
     "type": "where_clause",
     "named": true,
     "fields": {},
@@ -12138,6 +12328,10 @@
           "named": true
         },
         {
+          "type": "create_vector_index_statement",
+          "named": true
+        },
+        {
           "type": "declare_statement",
           "named": true
         },
@@ -12171,6 +12365,10 @@
         },
         {
           "type": "drop_table_statement",
+          "named": true
+        },
+        {
+          "type": "drop_vector_index_statement",
           "named": true
         },
         {
@@ -13265,6 +13463,10 @@
     "named": false
   },
   {
+    "type": "STORING",
+    "named": false
+  },
+  {
     "type": "STRUCT",
     "named": false
   },
@@ -13374,6 +13576,10 @@
   },
   {
     "type": "VALUES",
+    "named": false
+  },
+  {
+    "type": "VECTOR_INDEX",
     "named": false
   },
   {
