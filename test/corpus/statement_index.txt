@@ -1,0 +1,54 @@
+================================================================================
+DDL: CREATE SEARCH INDEX
+================================================================================
+
+CREATE SEARCH INDEX my_index ON dataset.my_table(ALL COLUMNS);
+CREATE SEARCH INDEX my_index ON dataset.my_table(column_a, column_b);
+CREATE SEARCH INDEX IF NOT EXISTS my_index ON dataset.my_table(column_a);
+CREATE SEARCH INDEX my_index
+ON dataset.my_table(ALL COLUMNS)
+OPTIONS(analyzer = 'LOG_ANALYZER');
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (create_search_index_statement
+    (identifier)
+    (identifier)
+    (index_all_columns))
+  (create_search_index_statement
+    (identifier)
+    (identifier)
+    (identifier)
+    (identifier))
+  (create_search_index_statement
+    (keyword_if_not_exists)
+    (identifier)
+    (identifier)
+    (identifier))
+  (create_search_index_statement
+    (identifier)
+    (identifier)
+    (index_all_columns)
+    (option_clause
+      (option_item
+        (identifier)
+        (string)))))
+
+================================================================================
+DDL: DROP SEARCH INDEX
+================================================================================
+
+DROP SEARCH INDEX my_index ON dataset.my_table;
+DROP SEARCH INDEX IF EXISTS my_index ON dataset.my_table;
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (drop_search_index_statement
+    (identifier)
+    (identifier))
+  (drop_search_index_statement
+    (keyword_if_exists)
+    (identifier)
+    (identifier)))
