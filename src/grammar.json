@@ -601,6 +601,34 @@
             },
             {
               "type": "SYMBOL",
+              "name": "create_capacity_statement"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "drop_capacity_statement"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "create_reservation_statement"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "alter_reservation_statement"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "drop_reservation_statement"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "create_assignment_statement"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "drop_assignment_statement"
+            },
+            {
+              "type": "SYMBOL",
               "name": "drop_table_statement"
             },
             {
@@ -3567,6 +3595,261 @@
         {
           "type": "SYMBOL",
           "name": "option_clause"
+        }
+      ]
+    },
+    "create_capacity_statement": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_keyword_create"
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "PATTERN",
+            "value": "[cC][aA][pP][aA][cC][iI][tT][yY]"
+          },
+          "named": false,
+          "value": "CAPACITY"
+        },
+        {
+          "type": "FIELD",
+          "name": "capacity_name",
+          "content": {
+            "type": "SYMBOL",
+            "name": "identifier"
+          }
+        },
+        {
+          "type": "SYMBOL",
+          "name": "option_clause"
+        }
+      ]
+    },
+    "drop_capacity_statement": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_keyword_drop"
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "PATTERN",
+            "value": "[cC][aA][pP][aA][cC][iI][tT][yY]"
+          },
+          "named": false,
+          "value": "CAPACITY"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "keyword_if_exists"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "FIELD",
+          "name": "capacity_name",
+          "content": {
+            "type": "SYMBOL",
+            "name": "identifier"
+          }
+        }
+      ]
+    },
+    "create_reservation_statement": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_keyword_create"
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "PATTERN",
+            "value": "[rR][eE][sS][eE][rR][vV][aA][tT][iI][oO][nN]"
+          },
+          "named": false,
+          "value": "RESERVATION"
+        },
+        {
+          "type": "FIELD",
+          "name": "reservation_name",
+          "content": {
+            "type": "SYMBOL",
+            "name": "identifier"
+          }
+        },
+        {
+          "type": "SYMBOL",
+          "name": "option_clause"
+        }
+      ]
+    },
+    "alter_reservation_statement": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_keyword_alter"
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "PATTERN",
+            "value": "[rR][eE][sS][eE][rR][vV][aA][tT][iI][oO][nN]"
+          },
+          "named": false,
+          "value": "RESERVATION"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "keyword_if_exists"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "FIELD",
+          "name": "reservation_name",
+          "content": {
+            "type": "SYMBOL",
+            "name": "identifier"
+          }
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "PATTERN",
+            "value": "[sS][eE][tT]"
+          },
+          "named": false,
+          "value": "SET"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "option_clause"
+        }
+      ]
+    },
+    "drop_reservation_statement": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_keyword_drop"
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "PATTERN",
+            "value": "[rR][eE][sS][eE][rR][vV][aA][tT][iI][oO][nN]"
+          },
+          "named": false,
+          "value": "RESERVATION"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "keyword_if_exists"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "FIELD",
+          "name": "reservation_name",
+          "content": {
+            "type": "SYMBOL",
+            "name": "identifier"
+          }
+        }
+      ]
+    },
+    "create_assignment_statement": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_keyword_create"
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "PATTERN",
+            "value": "[aA][sS][sS][iI][gG][nN][mM][eE][nN][tT]"
+          },
+          "named": false,
+          "value": "ASSIGNMENT"
+        },
+        {
+          "type": "FIELD",
+          "name": "assignment_name",
+          "content": {
+            "type": "SYMBOL",
+            "name": "identifier"
+          }
+        },
+        {
+          "type": "SYMBOL",
+          "name": "option_clause"
+        }
+      ]
+    },
+    "drop_assignment_statement": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_keyword_drop"
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "PATTERN",
+            "value": "[aA][sS][sS][iI][gG][nN][mM][eE][nN][tT]"
+          },
+          "named": false,
+          "value": "ASSIGNMENT"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "keyword_if_exists"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "FIELD",
+          "name": "assignment_name",
+          "content": {
+            "type": "SYMBOL",
+            "name": "identifier"
+          }
         }
       ]
     },
