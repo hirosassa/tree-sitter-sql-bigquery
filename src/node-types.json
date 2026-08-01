@@ -850,6 +850,10 @@
           "named": true
         },
         {
+          "type": "create_search_index_statement",
+          "named": true
+        },
+        {
           "type": "create_snapshot_table_statement",
           "named": true
         },
@@ -895,6 +899,10 @@
         },
         {
           "type": "drop_schema_statement",
+          "named": true
+        },
+        {
+          "type": "drop_search_index_statement",
           "named": true
         },
         {
@@ -1069,6 +1077,10 @@
           "named": true
         },
         {
+          "type": "create_search_index_statement",
+          "named": true
+        },
+        {
           "type": "create_snapshot_table_statement",
           "named": true
         },
@@ -1114,6 +1126,10 @@
         },
         {
           "type": "drop_schema_statement",
+          "named": true
+        },
+        {
+          "type": "drop_search_index_statement",
           "named": true
         },
         {
@@ -3260,6 +3276,60 @@
     }
   },
   {
+    "type": "create_search_index_statement",
+    "named": true,
+    "fields": {
+      "column_name": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      },
+      "index_name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      },
+      "table_name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "index_all_columns",
+          "named": true
+        },
+        {
+          "type": "keyword_if_not_exists",
+          "named": true
+        },
+        {
+          "type": "option_clause",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "create_snapshot_table_statement",
     "named": true,
     "fields": {
@@ -4076,6 +4146,42 @@
     }
   },
   {
+    "type": "drop_search_index_statement",
+    "named": true,
+    "fields": {
+      "index_name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      },
+      "table_name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "keyword_if_exists",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "drop_table_function_statement",
     "named": true,
     "fields": {
@@ -4319,6 +4425,10 @@
           "named": true
         },
         {
+          "type": "create_search_index_statement",
+          "named": true
+        },
+        {
           "type": "create_snapshot_table_statement",
           "named": true
         },
@@ -4364,6 +4474,10 @@
         },
         {
           "type": "drop_schema_statement",
+          "named": true
+        },
+        {
+          "type": "drop_search_index_statement",
           "named": true
         },
         {
@@ -4574,6 +4688,10 @@
           "named": true
         },
         {
+          "type": "create_search_index_statement",
+          "named": true
+        },
+        {
           "type": "create_snapshot_table_statement",
           "named": true
         },
@@ -4619,6 +4737,10 @@
         },
         {
           "type": "drop_schema_statement",
+          "named": true
+        },
+        {
+          "type": "drop_search_index_statement",
           "named": true
         },
         {
@@ -5110,6 +5232,10 @@
           "named": true
         },
         {
+          "type": "create_search_index_statement",
+          "named": true
+        },
+        {
           "type": "create_snapshot_table_statement",
           "named": true
         },
@@ -5155,6 +5281,10 @@
         },
         {
           "type": "drop_schema_statement",
+          "named": true
+        },
+        {
+          "type": "drop_search_index_statement",
           "named": true
         },
         {
@@ -6306,6 +6436,10 @@
           "named": true
         },
         {
+          "type": "create_search_index_statement",
+          "named": true
+        },
+        {
           "type": "create_snapshot_table_statement",
           "named": true
         },
@@ -6351,6 +6485,10 @@
         },
         {
           "type": "drop_schema_statement",
+          "named": true
+        },
+        {
+          "type": "drop_search_index_statement",
           "named": true
         },
         {
@@ -6515,6 +6653,11 @@
         }
       ]
     }
+  },
+  {
+    "type": "index_all_columns",
+    "named": true,
+    "fields": {}
   },
   {
     "type": "input_column",
@@ -7102,6 +7245,10 @@
           "named": true
         },
         {
+          "type": "create_search_index_statement",
+          "named": true
+        },
+        {
           "type": "create_snapshot_table_statement",
           "named": true
         },
@@ -7147,6 +7294,10 @@
         },
         {
           "type": "drop_schema_statement",
+          "named": true
+        },
+        {
+          "type": "drop_search_index_statement",
           "named": true
         },
         {
@@ -8372,6 +8523,10 @@
           "named": true
         },
         {
+          "type": "create_search_index_statement",
+          "named": true
+        },
+        {
           "type": "create_snapshot_table_statement",
           "named": true
         },
@@ -8417,6 +8572,10 @@
         },
         {
           "type": "drop_schema_statement",
+          "named": true
+        },
+        {
+          "type": "drop_search_index_statement",
           "named": true
         },
         {
@@ -9016,6 +9175,10 @@
           "named": true
         },
         {
+          "type": "create_search_index_statement",
+          "named": true
+        },
+        {
           "type": "create_snapshot_table_statement",
           "named": true
         },
@@ -9061,6 +9224,10 @@
         },
         {
           "type": "drop_schema_statement",
+          "named": true
+        },
+        {
+          "type": "drop_search_index_statement",
           "named": true
         },
         {
@@ -10122,6 +10289,10 @@
           "named": true
         },
         {
+          "type": "create_search_index_statement",
+          "named": true
+        },
+        {
           "type": "create_snapshot_table_statement",
           "named": true
         },
@@ -10167,6 +10338,10 @@
         },
         {
           "type": "drop_schema_statement",
+          "named": true
+        },
+        {
+          "type": "drop_search_index_statement",
           "named": true
         },
         {
@@ -11935,6 +12110,10 @@
           "named": true
         },
         {
+          "type": "create_search_index_statement",
+          "named": true
+        },
+        {
           "type": "create_snapshot_table_statement",
           "named": true
         },
@@ -11980,6 +12159,10 @@
         },
         {
           "type": "drop_schema_statement",
+          "named": true
+        },
+        {
+          "type": "drop_search_index_statement",
           "named": true
         },
         {
@@ -12419,6 +12602,10 @@
   },
   {
     "type": "ALL",
+    "named": false
+  },
+  {
+    "type": "ALL_COLUMNS",
     "named": false
   },
   {
@@ -13043,6 +13230,10 @@
   },
   {
     "type": "SCHEMA",
+    "named": false
+  },
+  {
+    "type": "SEARCH_INDEX",
     "named": false
   },
   {
