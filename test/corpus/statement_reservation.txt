@@ -1,0 +1,101 @@
+==========================================
+DDL: CREATE CAPACITY
+==========================================
+
+CREATE CAPACITY `p.r.c` OPTIONS(slot_count=100);
+
+---
+
+(source_file
+  (create_capacity_statement
+    capacity_name: (identifier)
+    (option_clause
+      (option_item
+        key: (identifier)
+        value: (number)))))
+
+==========================================
+DDL: DROP CAPACITY
+==========================================
+
+DROP CAPACITY IF EXISTS `p.r.c`;
+
+---
+
+(source_file
+  (drop_capacity_statement
+    (keyword_if_exists)
+    capacity_name: (identifier)))
+
+==========================================
+DDL: CREATE RESERVATION
+==========================================
+
+CREATE RESERVATION `p.r.res` OPTIONS(slot_capacity=100);
+
+---
+
+(source_file
+  (create_reservation_statement
+    reservation_name: (identifier)
+    (option_clause
+      (option_item
+        key: (identifier)
+        value: (number)))))
+
+==========================================
+DDL: ALTER RESERVATION
+==========================================
+
+ALTER RESERVATION `p.r.res` SET OPTIONS(slot_capacity=200);
+
+---
+
+(source_file
+  (alter_reservation_statement
+    reservation_name: (identifier)
+    (option_clause
+      (option_item
+        key: (identifier)
+        value: (number)))))
+
+==========================================
+DDL: DROP RESERVATION
+==========================================
+
+DROP RESERVATION `p.r.res`;
+
+---
+
+(source_file
+  (drop_reservation_statement
+    reservation_name: (identifier)))
+
+==========================================
+DDL: CREATE ASSIGNMENT
+==========================================
+
+CREATE ASSIGNMENT `p.r.res.a` OPTIONS(job_type='QUERY');
+
+---
+
+(source_file
+  (create_assignment_statement
+    assignment_name: (identifier)
+    (option_clause
+      (option_item
+        key: (identifier)
+        value: (string)))))
+
+==========================================
+DDL: DROP ASSIGNMENT
+==========================================
+
+DROP ASSIGNMENT IF EXISTS `p.r.res.a`;
+
+---
+
+(source_file
+  (drop_assignment_statement
+    (keyword_if_exists)
+    assignment_name: (identifier)))

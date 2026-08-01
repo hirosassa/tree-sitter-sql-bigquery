@@ -130,6 +130,13 @@ module.exports = grammar({
           $.alter_organization_set_options_statement,
           $.alter_project_set_options_statement,
           $.alter_bi_capacity_set_options_statement,
+          $.create_capacity_statement,
+          $.drop_capacity_statement,
+          $.create_reservation_statement,
+          $.alter_reservation_statement,
+          $.drop_reservation_statement,
+          $.create_assignment_statement,
+          $.drop_assignment_statement,
           $.drop_table_statement,
           $.create_function_statement,
           $.create_remote_function_statement,
@@ -585,6 +592,64 @@ module.exports = grammar({
         field('bi_capacity_name', $.identifier),
         kw('SET'),
         $.option_clause,
+      ),
+
+    create_capacity_statement: ($) =>
+      seq(
+        $._keyword_create,
+        kw('CAPACITY'),
+        field('capacity_name', $.identifier),
+        $.option_clause,
+      ),
+
+    drop_capacity_statement: ($) =>
+      seq(
+        $._keyword_drop,
+        kw('CAPACITY'),
+        optional($.keyword_if_exists),
+        field('capacity_name', $.identifier),
+      ),
+
+    create_reservation_statement: ($) =>
+      seq(
+        $._keyword_create,
+        kw('RESERVATION'),
+        field('reservation_name', $.identifier),
+        $.option_clause,
+      ),
+
+    alter_reservation_statement: ($) =>
+      seq(
+        $._keyword_alter,
+        kw('RESERVATION'),
+        optional($.keyword_if_exists),
+        field('reservation_name', $.identifier),
+        kw('SET'),
+        $.option_clause,
+      ),
+
+    drop_reservation_statement: ($) =>
+      seq(
+        $._keyword_drop,
+        kw('RESERVATION'),
+        optional($.keyword_if_exists),
+        field('reservation_name', $.identifier),
+      ),
+
+    create_assignment_statement: ($) =>
+      seq(
+        $._keyword_create,
+        kw('ASSIGNMENT'),
+        field('assignment_name', $.identifier),
+        $.option_clause,
+      ),
+
+    drop_assignment_statement: ($) =>
+      seq(
+        $._keyword_drop,
+        kw('ASSIGNMENT'),
+        optional($.keyword_if_exists),
+        field('assignment_name', $.identifier),
       ),
     alter_column_actions_list: ($) =>
       seq(
