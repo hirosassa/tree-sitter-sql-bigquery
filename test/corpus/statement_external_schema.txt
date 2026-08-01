@@ -1,0 +1,63 @@
+==========================================
+DDL: CREATE EXTERNAL SCHEMA
+==========================================
+
+CREATE EXTERNAL SCHEMA IF NOT EXISTS s WITH CONNECTION conn OPTIONS(catalog='c');
+
+---
+
+(source_file
+  (create_external_schema_statement
+    (keyword_if_not_exists)
+    schema_name: (identifier)
+    (with_connection_clause
+      connection_name: (connection_path))
+    (option_clause
+      (option_item
+        key: (identifier)
+        value: (string)))))
+
+==========================================
+DDL: CREATE EXTERNAL SCHEMA with options only
+==========================================
+
+CREATE EXTERNAL SCHEMA s OPTIONS(x='y');
+
+---
+
+(source_file
+  (create_external_schema_statement
+    schema_name: (identifier)
+    (option_clause
+      (option_item
+        key: (identifier)
+        value: (string)))))
+
+==========================================
+DDL: ALTER EXTERNAL SCHEMA SET OPTIONS
+==========================================
+
+ALTER EXTERNAL SCHEMA s SET OPTIONS(x='y');
+
+---
+
+(source_file
+  (alter_external_schema_statement
+    schema_name: (identifier)
+    (option_clause
+      (option_item
+        key: (identifier)
+        value: (string)))))
+
+==========================================
+DDL: DROP EXTERNAL SCHEMA
+==========================================
+
+DROP EXTERNAL SCHEMA IF EXISTS s;
+
+---
+
+(source_file
+  (drop_external_schema_statement
+    (keyword_if_exists)
+    schema_name: (identifier)))
