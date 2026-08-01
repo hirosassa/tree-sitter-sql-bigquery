@@ -27,12 +27,6 @@
 (call_statement routine_name: (identifier) @function)
 
 [
-  "_PARTITIONDATE"
-  "_PARTITIONTIME"
-  "_TABLE_SUFFIX"
-] @variable.builtin
-
-[
   "DATE"
   "TIME"
   "DATETIME"
